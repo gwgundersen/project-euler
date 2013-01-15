@@ -6,8 +6,6 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 find the sum of the even-valued terms.
 '''
 
-# This comment is a git test
-
 def fibGet(n):
     if n <= 1:
         return 1

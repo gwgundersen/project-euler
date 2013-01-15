@@ -93,3 +93,5 @@ def genFibonacci():
     while True:
         yield a
         a, b = b, a + b
+
+print factorial(1000)

@@ -3,12 +3,8 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 Find the sum of all the multiples of 3 or 5 below 1000.
 '''
 
-def euler_p1():
-    answer = 0
-    for i in range(1000):
-        if i%3==0 or i%5==0:
-            answer += i
+for i in range(1000):
+    if i%3==0 or i%5==0:
+        answer += i
 
-    return answer
-
-euler_p1()
+print answer

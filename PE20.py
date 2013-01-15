@@ -7,8 +7,8 @@ and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 Find the sum of the digits in the number 100!
 '''
 
-import time, gmath
+import time, math
 s = time.time()
 
-print sum([int(i) for i in str(gmath.factorial(100))])
+print sum([int(i) for i in str(math.factorial(100))])
 print 'Time: ' + str(time.time() - s)
