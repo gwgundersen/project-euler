@@ -43,7 +43,7 @@ def genPrimes():
 
 def getPrimeFactors(n):
     primeFactors = []
-    for p in genPrimes(10):
+    for p in genPrimes():
         if p*p > n:
             break
         while n % p == 0:
