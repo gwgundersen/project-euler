@@ -96,3 +96,16 @@ def genFibonacci():
 
 def getFigurate(n, M):
     return (factorial(M+n-1) / factorial(M-1)) / factorial(n)
+
+def get_proper_divisors(n):
+    divs = []
+    for num in range(1,n):
+        if n % num == 0:
+            divs.append(num)
+    return divs
+
+def is_amicable_pair(a,b):
+    if sum(get_proper_divisors(a)) == b and sum(get_proper_divisors(b)) == a and a != b:
+        return True
+    else:
+        return False
