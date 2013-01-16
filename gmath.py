@@ -94,4 +94,5 @@ def genFibonacci():
         yield a
         a, b = b, a + b
 
-print factorial(1000)
+def getFigurate(n, M):
+    return (factorial(M+n-1) / factorial(M-1)) / factorial(n)
