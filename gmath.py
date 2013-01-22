@@ -3,6 +3,7 @@ The following is a library of useful mathematical functions for Project Euler
 Most of the scripts were written by Gregory Gundersen, although some of them are not original
 The library has been compiled by Gregory Gundersen
 '''
+import time
 
 def isOdd(n):
     if n % 2 == 1:
@@ -40,7 +41,7 @@ def genPrimes():
             primes.append(n)
             yield n
 
-def getPrimeFactors(n):
+def get_prime_factors(n):
     primeFactors = []
     for p in genPrimes():
         if p*p > n:
@@ -52,6 +53,14 @@ def getPrimeFactors(n):
         primeFactors.append(n)
 
     return primeFactors
+
+def gen_triangle_number():
+    tri, inc = 1, 1
+    yield 1
+    while True:
+        inc += 1
+        tri += inc
+        yield tri
 
 def genComposites():
     yield 4
@@ -151,7 +160,7 @@ def get_alphabet_value_char(char):
         'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8, 'i':9, 'j':10, 'k':11, 'l':12, 'm':13,
         'n':14, 'o':15, 'p':16, 'q':17, 'r':18, 's':19, 't':20, 'u':21, 'v':22, 'w':23, 'x':24, 'y':25, 'z':26
         }
-    return alphabet_values[char]
+    return alphabet_values[char.lower()]
 
 def get_alphabet_value_word(word):
     value = 0
@@ -165,4 +174,8 @@ def get_alphabet_value_word(word):
 def gauss_day_algo(year, month, day):
     (d + m + y + (y % 4) + c) % 7
 '''
+
+
+
+
 
