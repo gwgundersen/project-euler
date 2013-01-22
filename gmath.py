@@ -5,10 +5,9 @@ The library has been compiled by Gregory Gundersen
 '''
 
 def isOdd(n):
-    if n % 2 == 0:
-        return False
-    else:
+    if n % 2 == 1:
         return True
+    return False
 
 def isPrime(n):
     if n < 0:
@@ -98,8 +97,8 @@ def getFigurate(n, M):
     return (factorial(M+n-1) / factorial(M-1)) / factorial(n)
 
 def get_proper_divisors(n):
-    divs = []
-    for num in range(1,n):
+    divs = [1]
+    for num in range(2, n/2+1):
         if n % num == 0:
             divs.append(num)
     return divs
@@ -107,5 +106,63 @@ def get_proper_divisors(n):
 def is_amicable_pair(a,b):
     if sum(get_proper_divisors(a)) == b and sum(get_proper_divisors(b)) == a and a != b:
         return True
+    return False
+
+def is_perfect(n):
+    if sum(get_proper_divisors(n)) == n:
+        return True
+    return False
+
+def is_abundant(n):
+    if sum(get_proper_divisors(n)) > n:
+        return True
+    return False
+
+def is_deficient(n):
+    if sum(get_proper_divisors(n)) < n:
+        return True
+    return False
+
+def is_palindrome(n):
+    sn = str(n)
+    if len(sn) == 1 or (len(sn) == 2 and sn[0] == sn[1]):
+        return True
     else:
-        return False
+        L = len(sn)-1
+        if sn[0] == sn[L]:
+            sn = sn[1:L]
+            return is_palindrome(sn)
+        else:
+            return False
+
+def base10_to_baseK(n, K, L):
+    # L is an empty list
+    if n == 0:
+        L.reverse()
+        b = map(str, L)
+        b = ''.join(b)
+        return int(b)
+    else:
+        L.append(n % K)
+        return base10_to_baseK(n/K, K, L)
+
+def get_alphabet_value_char(char):
+    alphabet_values = {
+        'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8, 'i':9, 'j':10, 'k':11, 'l':12, 'm':13,
+        'n':14, 'o':15, 'p':16, 'q':17, 'r':18, 's':19, 't':20, 'u':21, 'v':22, 'w':23, 'x':24, 'y':25, 'z':26
+        }
+    return alphabet_values[char]
+
+def get_alphabet_value_word(word):
+    value = 0
+    for char in word:
+        value += get_alphabet_value_char(char)
+    return value
+
+
+
+'''
+def gauss_day_algo(year, month, day):
+    (d + m + y + (y % 4) + c) % 7
+'''
+

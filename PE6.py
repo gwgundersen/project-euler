@@ -7,9 +7,7 @@ Hence the difference between the sum of the squares of the first ten natural num
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 '''
 
-limit = 100
-
-def euler_p6(limit):
+def PE6(limit):
     def sumOfSquares(limit):
         sum = 0
         for i in range(1,limit+1):
@@ -24,3 +22,6 @@ def euler_p6(limit):
         return sum
 
     return squareOfSums(limit) - sumOfSquares(limit)
+
+def main():
+    return PE6(100)
