@@ -1,7 +1,7 @@
 '''
 DESCRIPTION:
 Project Euler, problem 42
-Gregory Gundersen, ../../2013
+Gregory Gundersen, 01/22/2013
 
 PROBLEM:
 The nth term of the sequence of triangle numbers is given by, tn = (1/2)*n*(n+1); so the first ten triangle numbers are:
@@ -13,12 +13,9 @@ For example, the word value for SKY is 19 + 11 + 25 = 55 = t10. If the word valu
 
 Using words.txt, a 16K text file containing nearly two-thousand common English words, how many are triangle words?
 
-SOLUTION:
-
-PSEUDO CODE:
-For each word in words.txt, generate alphabetical value
-Compare to hash table of triangle numbers
-Add up triangle words
+RESOLUTION:
+Solution: 162
+Time: 0.0369999408722
 '''
 import time
 import gmath as g

@@ -168,7 +168,21 @@ def get_alphabet_value_word(word):
         value += get_alphabet_value_char(char)
     return value
 
+'''
+def is_pandigit(n):
+    if len(set(list(str(n)))) == len(str(n)):
+        return True
+    return False
+'''
 
+def is_pandigit(L):
+    if not L:
+        return True
+    else:
+        for n in L[1:]:
+            if L[0] == n:
+                return False
+        return is_pandigit(L[1:])
 
 '''
 def gauss_day_algo(year, month, day):
