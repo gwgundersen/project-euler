@@ -17,21 +17,24 @@ import gmath as g
 
 s = time.time()
 
-'''
-pandigits = []
-for n in range(10000000):
-    if g.is_pandigit(list(str(n))):
-        pandigits.append(n)
-print max(pandigits)'''
+def get_primes_in_range(lo, hi):
+    if lo % 2 == 0:
+        lo -= 1
+    while g.isPrime(lo) == False:
+        lo -= 2
+    primes = []
+    primes.append(lo)
+    for n in range(lo, hi+1, 2):
+        if g.isPrime(n):
+            primes.append(n)
+    return primes
 
-def is_pandigit(L, LHash):
-    if not L or len(L) == 1:
-        return True
-    else:
-        if L[0] != L[1]:
-            if L[0] == n:
-                return False
-             LHash.append(L[0])
-        return is_pandigit(L[1:])
+primes = get_primes_in_range(10000000, 100000000)
 
+pans = []
+for p in primes:
+    if g.is_pandigital(p):
+        pans.append(p)
+
+print max(pans)
 print 'Time: ' + str(time.time() - s)

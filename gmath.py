@@ -41,6 +41,51 @@ def genPrimes():
             primes.append(n)
             yield n
 
+def gen_primes_from_p(p):
+    primes, n, i = [2], 1, 1
+    yield p
+    while True:
+        n += 1
+        for p in primes:
+            if (n % p) == 0:
+                break
+        else:
+            primes.append(n)
+            yield n
+
+
+def sieve_of_atkin(limit):
+
+    # initialize
+    primes = [2,3,5]
+    sieve = [False]*(limit+1)
+    sqrt_limit = int(limit**0.5)
+
+    # generate primes
+    for x in range(1, sqrt_limit):
+        for y in range(1, sqrt_limit):
+            n = 4*x**2+y**2
+            if (n <= limit) and (n % 12 == 1 or n % 12 == 5):
+                sieve[n] = not sieve[n]
+            n = 3*x**2+y**2
+            if (n <= limit) and (n % 12 == 7):
+                sieve[n] = not sieve[n]
+            n = 3*x**2-y**2
+            if x > y and (n <= limit) and n % 12 == 11:
+                sieve[n] = not sieve[n]
+
+    # eliminate composites
+    for i in range(5, sqrt_limit):
+        if sieve[i]:
+            for j in range(i**2, limit, i**2):
+                sieve[j] = False
+
+    # finalize
+    for i in range(7, limit):
+        if sieve[i]:
+            primes.append(i)
+    return primes
+
 def get_prime_factors(n):
     primeFactors = []
     for p in genPrimes():
@@ -168,21 +213,12 @@ def get_alphabet_value_word(word):
         value += get_alphabet_value_char(char)
     return value
 
-'''
-def is_pandigit(n):
+def is_pandigital(n):
     if len(set(list(str(n)))) == len(str(n)):
         return True
     return False
-'''
 
-def is_pandigit(L):
-    if not L:
-        return True
-    else:
-        for n in L[1:]:
-            if L[0] == n:
-                return False
-        return is_pandigit(L[1:])
+
 
 '''
 def gauss_day_algo(year, month, day):
