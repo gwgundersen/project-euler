@@ -29,12 +29,23 @@ def get_primes_in_range(lo, hi):
             primes.append(n)
     return primes
 
-primes = get_primes_in_range(10000000, 100000000)
+def sieve(lo, hi):
+    if lo % 2 == 0:
+        lo -= 1
+    if g.isPrime(lo) == False:
+        while g.isPrime(lo) == False:
+            lo -= 1
 
-pans = []
-for p in primes:
-    if g.is_pandigital(p):
-        pans.append(p)
+	nums = range(lo, hi+1, 2)
 
-print max(pans)
+	for n in nums:
+		m = 2
+		while n * m <= nums[-1]:
+			if n * m in nums:
+				nums.remove(n*m)
+			m += 1
+	return nums
+
+print sieve(50,100)
+
 print 'Time: ' + str(time.time() - s)
