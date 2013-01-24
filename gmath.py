@@ -214,40 +214,10 @@ def get_alphabet_value_word(word):
     return value
 
 def is_pandigital(n):
-    L = list(range(1, n+1))
+    L = map(str, range(1, len(str(n))+1))
     for d in str(n):
         if d in L:
             L.remove(d)
         else:
             return False
     return True
-
-
-def is_pandigital(n):
-    L = list(str(n))
-    print L
-    for d in str(n):
-        if d in L:
-            L.remove(d)
-        else:
-            return False
-    return True
-
-print is_pandigital(1234)
-print is_pandigital(4312)
-print is_pandigital(2341)
-
-print is_pandigital(1236)
-print is_pandigital(1332)
-print is_pandigital(0230)
-
-
-'''
-def gauss_day_algo(year, month, day):
-    (d + m + y + (y % 4) + c) % 7
-'''
-
-
-
-
-
