@@ -10,7 +10,6 @@ For example, 2143 is a 4-digit pandigital and is also prime.
 What is the largest n-digit pandigital prime that exists?
 
 SOLUTION:
-7654319
 7652413
 '''
 
@@ -19,11 +18,10 @@ import gmath as g
 
 s = time.time()
 
-def main():
-    for n in range(7654321, 7000000, -2):
-        if g.is_pandigital(n):
-            return n
-    return None
+results = []
+for n in range(7654321, 7000000, -2):
+    if g.is_pandigital(n) and g.isPrime(n):
+        results.append(n)
 
-print main()                  
+print max(results)
 print 'Time: ' + str(time.time() - s)

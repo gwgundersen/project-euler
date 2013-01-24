@@ -214,10 +214,32 @@ def get_alphabet_value_word(word):
     return value
 
 def is_pandigital(n):
-    if len(set(list(str(n)))) == len(str(n)):
-        return True
-    return False
+    L = list(range(1, n+1))
+    for d in str(n):
+        if d in L:
+            L.remove(d)
+        else:
+            return False
+    return True
 
+
+def is_pandigital(n):
+    L = list(str(n))
+    print L
+    for d in str(n):
+        if d in L:
+            L.remove(d)
+        else:
+            return False
+    return True
+
+print is_pandigital(1234)
+print is_pandigital(4312)
+print is_pandigital(2341)
+
+print is_pandigital(1236)
+print is_pandigital(1332)
+print is_pandigital(0230)
 
 
 '''
