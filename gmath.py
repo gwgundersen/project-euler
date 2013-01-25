@@ -221,3 +221,22 @@ def is_pandigital(n):
         else:
             return False
     return True
+
+def concatenated_product(n, L):
+    s = ''
+    for num in L:
+        s += str(num * n)
+    return int(s)
+
+def is_truncatable(n):
+    s = str(n)
+    l = len(s)
+    if l < 2 or not isPrime(n):
+        return False
+    for x in range(l):
+        if not isPrime(int(s[x:])):
+            return False
+    for x in range(l, 0, -1):
+        if not isPrime(int(s[:x])):
+            return False
+    return True
