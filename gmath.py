@@ -1,6 +1,6 @@
 '''
 The following is a library of useful mathematical functions for Project Euler
-Most of the scripts were written by Gregory Gundersen, although some of them are not original
+Most of the scripts were written by Gregory Gundersen, although many of them are not original
 The library has been compiled by Gregory Gundersen
 '''
 import time
@@ -107,6 +107,15 @@ def gen_triangle_number():
         tri += inc
         yield tri
 
+def get_triangle_number(n):
+    return (n * (n + 1)) / 2	 
+
+def get_pentagonal_number(n):
+    return (n * (3*n - 1)) / 2	 
+
+def get_hexagonal_number(n):
+    return n * (2*n - 1)
+
 def genComposites():
     yield 4
     n = 5
@@ -127,6 +136,13 @@ def genCompositesOdd():
         else:
             n += 2
 
+def get_factorial(n):
+    facts = [1, 1]
+    for i in range(2, n+1):
+        facts.append(facts[i-1] * i)
+    return facts[n]
+
+# classic but highly inefficient recursive function
 def factorial(n):
     if n == 1:
         return 1
@@ -241,7 +257,25 @@ def is_truncatable(n):
             return False
     return True
 
-def is_pythagorean_triple(a, b, c):
-    if a**2 + b**2 == c**2:
+def is_pythagorean_triple(L):
+    if L[0]**2 + L[1]**2 == L[2]**2:
         return True
     return False
+
+def get_pythagorean_triples(p):
+    ps = []
+    if p % 2 != 0: return None
+    for a in range(1, int(p/2)): # a+b > c ==> a+b+c > 2c ==> if 2c=p < limit, p/2 < limit
+        for b in range(a, int(p/2)):
+            c = (a**2 + b**2)**0.5
+            if a+b+c == p and is_pythagorean_triple([a,b,c]):
+                ps.append([a,b,c])
+    return ps
+
+def get_multiplicative_order(b, n):
+    # This function should be improved to always return a meaningful result
+    # e.g. It falls into an infinite loop for b = 10, n = 2
+    k = 1
+    while (b ** k) % n != 1:
+        k += 1
+    return k
