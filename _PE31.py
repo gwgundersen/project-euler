@@ -1,7 +1,7 @@
 '''
 DESCRIPTION:
 Project Euler, problem 31
-Gregory Gundersen, 1/../2013
+Gregory Gundersen, 1/28/2013
 
 PROBLEM:
 In England the currency is made up of pound, L, and pence, p,
@@ -14,24 +14,29 @@ It is possible to make L2 in the following way:
 How many different ways can L2 be made using any number of coins?
 
 SOLUTION:
+The key idea is that this is the opposite of recursion
+Rather than starting with the biggest denomination and counting "down", begin with the smallest and count up
+
+An intuitve explanation:
+How many ways can you make 5p with a 1p coin? There is only one way: (5x1p)
+How many ways can you make 5p with 1 and 2p coins? There are two different with just a 2p coin: (2x2p + 1x1p) and (2x1p + 3x1p)
+Then add how many ways to add to 5p with a 1p coin, something you have already calculated: a total of 3 ways
 '''
 
 import time
+
+def main():
+
+    mark = 200
+    coins = [1, 2, 5, 10, 20, 50, 100, 200]
+    counts = [0 for i in range(mark+1)]
+    counts[0] = 1 # by convention, there is one way to make 0 coins (wiki)
+
+    for c in range(len(coins)):
+        for i in range(coins[c], mark+1):
+            counts[i] += counts[i - coins[c]]
+    return counts[mark]
+
 s = time.time()
-
-coins = [100, 50, 20, 10, 5, 2, 1]
-mark = 200
-
-1+1+1+...+1+1+1 = 200
-1+1+1+...+1+2   = 200
-
-
-
-
-def get_change(coins, mark):
-
-
-
-
-
+print main()
 print 'Time: ' + str(time.time() - s)

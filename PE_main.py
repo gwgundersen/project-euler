@@ -7,12 +7,8 @@ import time, PE1, PE6
 f = open('pe_main_results.txt', 'r+')
 
 s = time.time()
-# This should be a lookup table!
-if PE1.main() == 233168:
-    f.write('PE1: Success!')
-    f.write('Time: ' + str(time.time() - s))
-    f.write('')
-    f.write('Test')
+
+print PE + 1 + .py
 
 '''
 else:
