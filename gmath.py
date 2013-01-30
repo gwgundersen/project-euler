@@ -317,5 +317,3 @@ def rotate_digits(n):
     n_list[-1] = n_first
 
     return int(''.join(n_list))
-
-print is_permutation_of(994, 499)

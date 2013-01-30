@@ -1,14 +1,22 @@
 '''
 DESCRIPTION:
-Project Euler, problem 49
-Gregory Gundersen, 01/30/2013
+Project Euler, problem 47
+Gregory Gundersen, ../../2013
 
 PROBLEM:
-The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases by 3330, is unusual in two ways: (i) each of the three terms are prime, and, (ii) each of the 4-digit numbers are permutations of one another.
+The first two consecutive numbers to have two distinct prime factors are:
 
-There are no arithmetic sequences made up of three 1-, 2-, or 3-digit primes, exhibiting this property, but there is one other 4-digit increasing sequence.
+14 = 2 * 7
+15 = 3 * 5
 
-What 12-digit number do you form by concatenating the three terms in this sequence?
+The first three consecutive numbers to have three distinct prime factors are:
+
+644 = 2^2 * 7 * 23
+645 = 3 * 5 * 43
+646 = 2 * 17 * 19.
+
+Find the first four consecutive integers to have four distinct primes factors. What is the first of these numbers?
+
 
 SOLUTION:
 296962999629
