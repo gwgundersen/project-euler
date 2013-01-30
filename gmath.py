@@ -292,6 +292,17 @@ def get_multiplicative_order(b, n):
 HELPER FUNCTIONS
 """
 
+def is_permutation_of(n, m):
+    """ If n is a permutation of m, return True, else False
+    """
+    mL = list(str(m))
+    if len(str(n)) != len(mL):
+        return False
+    for d in str(n):
+        if d not in mL:
+            return False
+    return True
+
 def has_even_digit(n):
     evens = ['0', '2', '4', '6', '8']
     for e in evens:
