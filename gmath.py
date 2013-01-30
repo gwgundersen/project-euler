@@ -295,11 +295,10 @@ HELPER FUNCTIONS
 def is_permutation_of(n, m):
     """ If n is a permutation of m, return True, else False
     """
-    mL = list(str(m))
-    if len(str(n)) != len(mL):
+    if len(str(n)) != len(str(m)):
         return False
     for d in str(n):
-        if d not in mL:
+        if d not in str(m):
             return False
     return True
 
