@@ -27,7 +27,7 @@ def main():
         p2 = p + 3330
         p3 = p + 6660
         if g.isPrime(p2) and g.isPrime(p3):
-            if g.is_permutation_of(p, p2) and g.is_permutation_of(p, p3):
+            if g.is_permutation(p, p2) and g.is_permutation(p, p3):
                 primes.append([str(p), str(p2), str(p3)])
 
     return ''.join(primes[1])

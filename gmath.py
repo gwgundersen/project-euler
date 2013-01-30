@@ -292,21 +292,18 @@ def get_multiplicative_order(b, n):
 HELPER FUNCTIONS
 """
 
-def is_permutation_of(n, m):
+def is_permutation(n, m):
     """ If n is a permutation of m, return True, else False
     """
-    if len(str(n)) != len(str(m)):
-        return False
-    for d in str(n):
-        if d not in str(m):
-            return False
-    return True
+    return sorted(str(n)) == sorted(str(m))
 
 def has_even_digit(n):
-    evens = ['0', '2', '4', '6', '8']
-    for e in evens:
-        if e in str(n):
+    if n == 0:
+        return True
+    while n != 0:
+        if n % 2 == 0:
             return True
+        n //= 10
     return False
 
 def rotate_digits(n):
@@ -320,3 +317,5 @@ def rotate_digits(n):
     n_list[-1] = n_first
 
     return int(''.join(n_list))
+
+print is_permutation_of(994, 499)
