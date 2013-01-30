@@ -29,6 +29,15 @@ def isPrime(n):
                 i += 2
             return True
 
+def is_circular_prime(p):
+    if not isPrime(p) or has_even_digit(p):
+        return False
+    for i in range(len(str(p))):
+        p = rotate_digits(p)
+        if not isPrime(p):
+            return False
+    return True
+
 def genPrimes():
     primes, n, i = [2], 1, 1
     yield 2
@@ -52,39 +61,6 @@ def gen_primes_from_p(p):
         else:
             primes.append(n)
             yield n
-
-
-def sieve_of_atkin(ldown,imit):
-
-    # initialize
-    primes = [2,3,5]
-    sieve = [False]*(limit+1)
-    sqrt_limit = int(limit**0.5)
-
-    # generate primes
-    for x in range(1, sqrt_limit):
-        for y in range(1, sqrt_limit):
-            n = 4*x**2+y**2
-            if (n <= limit) and (n % 12 == 1 or n % 12 == 5):
-                sieve[n] = not sieve[n]
-            n = 3*x**2+y**2
-            if (n <= limit) and (n % 12 == 7):
-                sieve[n] = not sieve[n]
-            n = 3*x**2-y**2
-            if x > y and (n <= limit) and n % 12 == 11:
-                sieve[n] = not sieve[n]
-
-    # eliminate composites
-    for i in range(5, sqrt_limit):
-        if sieve[i]:
-            for j in range(i**2, limit, i**2):
-                sieve[j] = False
-
-    # finalize
-    for i in range(7, limit):
-        if sieve[i]:
-            primes.append(i)
-    return primes
 
 def gen_sieve_of_eratosthenes():
     # Code by David Eppstein, UC Irvine, 28 Feb 2002
@@ -311,3 +287,26 @@ def get_multiplicative_order(b, n):
     while (b ** k) % n != 1:
         k += 1
     return k
+
+"""
+HELPER FUNCTIONS
+"""
+
+def has_even_digit(n):
+    evens = ['0', '2', '4', '6', '8']
+    for e in evens:
+        if e in str(n):
+            return True
+    return False
+
+def rotate_digits(n):
+    
+    n_list = list(str(n))
+    n_first = n_list[0]
+
+    for i in range(0, len(str(n))-1):
+        n_list[i] = n_list[i+1]
+
+    n_list[-1] = n_first
+
+    return int(''.join(n_list))
