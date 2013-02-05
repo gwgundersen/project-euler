@@ -40,7 +40,6 @@ for p in primes:
         print 'i: ' + str(i)
         print 'length: ' + str(length)
     lengths.append(length)
-    print
 
 print lengths
 
