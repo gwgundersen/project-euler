@@ -19,33 +19,44 @@ SOLUTION:
 import time
 import gmath as g
 
+s = time.time()
+
 # Generate primes
 pg = g.gen_sieve_of_eratosthenes()
 primes = []
-for i in range(200): primes.append(pg.next())
-lengths = []
+lim = 1000000
+while True:
+    p = pg.next()
+    if p < lim:
+        primes.append(p)
+    else:
+        break
 
-for p in primes:
-    length = 1
-    tp = p
-    i = primes.index(tp)
-    print 'PRIME: ' + str(p)
-    print 'TEMP: ' + str(tp)
-    print 'INDEX: ' + str(i)
-    while g.isPrime(tp):
-        tp += primes[i+1]
-        i += 1
-        length += 1
-        print 'tp: ' + str(tp)
-        print 'i: ' + str(i)
-        print 'length: ' + str(length)
-    lengths.append(length)
+lens = []
+for i in range(0, len(primes)):
+    
+    for j in range(1, len(primes), 2):
 
-print lengths
+        # uncomment the line below if the two loops are confusing
+        # print primes[j:len(primes)-i]
+
+        sm = sum(primes[j:len(primes)-i]) # the sum of the primes
+        ln = len(primes[j:len(primes)-i]) # the len of the primes
+
+        if g.isPrime(sm) and sm < lim:
+            lens.append(ln)
 
 
 
- 
-            
-s = time.time()
+        # uncomment the line below if the two loops are confusing
+        # print primes[j:len(primes)-i]
+
+        #sm = sum(primes[j:len(primes)-i]) # the sum of the primes
+        #ln = len(primes[j:len(primes)-i]) # the len of the primes
+
+        #if g.isPrime(sm) and sm < lim:
+        #    lens.append(ln)
+
+print max(lens)
+
 print 'Time: ' + str(time.time() - s)

@@ -13,8 +13,8 @@ def isOdd(n):
 def isPrime(n):
     if n < 0:
         raise ValueError
-    elif isinstance(n, int) == False:
-        raise TypeError
+    #elif isinstance(n, int) == False:
+    #    raise TypeError
     else:
         maxi = n**0.5
         i = 3
