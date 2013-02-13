@@ -16,11 +16,43 @@ SOLUTION:
 import time
 import gmath as g
 
-for num in range(10, 100):
-    for den in range(num, 100):
-        print float(num) / float(den)
+def is_common_divisor(n1, n2, d):
+    if d==0:
+        return False
+    if n1%d == 0 and n2%d == 0:
+        return True
+    return False
 
- 
-            
-s = time.time()
-print 'Time: ' + str(time.time() - s)
+cf = []
+for n in range(1, 100):
+    for d in range(n+1, 100):
+        for i in range(n):
+            if is_common_divisor(n, d, i) == False:
+                cf.append([n, d])
+
+print cf
+
+'''
+        n1 = float(str(n)[0])
+        n2 = float(str(n)[0])
+        d1 = int(str(d)[0])
+        d2 = int(str(d)[0])
+        
+        fr = float(n) / d
+
+        if n/10==n1 and d/10 == d1:
+            break
+
+        if fr==n1/n1
+            cf.append(n1/d1)
+        if fr==n1/d2:
+            cf.append(n1/d2)
+        if fr==n2/d1:
+            cf.append(n2/d1)
+        if fr==n2/d2:
+            cf.append(n2/d2)
+
+print cf
+
+#s = time.time()
+#print 'Time: ' + str(time.time() - s)'''
