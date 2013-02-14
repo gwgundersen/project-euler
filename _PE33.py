@@ -16,43 +16,58 @@ SOLUTION:
 import time
 import gmath as g
 
-def is_common_divisor(n1, n2, d):
-    if d==0:
-        return False
-    if n1%d == 0 and n2%d == 0:
-        return True
-    return False
+def get_reduced_fraction(n, d):
 
-cf = []
-for n in range(1, 100):
-    for d in range(n+1, 100):
-        for i in range(n):
-            if is_common_divisor(n, d, i) == False:
-                cf.append([n, d])
+    pg = g.gen_sieve_of_eratosthenes()
+    ps = [1]
+    if n > d: m = n
+    else: m = d
 
-print cf
+    while ps[len(ps)-1] < m:
+        ps.append(pg.next())
+
+    for p in ps:
+        if (n % p and d % p) == 0:
+            n = int(float(n) / p)
+            d = int(float(d) / p)
+
+    print ps
+    return [n, d]       
+
+
+print get_reduced_fraction(8, 4)
 
 '''
-        n1 = float(str(n)[0])
-        n2 = float(str(n)[0])
-        d1 = int(str(d)[0])
-        d2 = int(str(d)[0])
-        
+cf = []
+for n in range(10, 100):
+    for d in range(n+1, 100):
+
         fr = float(n) / d
+        n1 = float(str(n)[0])
+        n2 = float(str(n)[1])
+        d1 = int(str(d)[0])
+        d2 = int(str(d)[1])
+        
+        if (d%10 or d1 or d2) == 0:
+            if n1 == d1 and fr == n2 / d2:
+                cf.append([n,d])
+            if n1 == d2 and fr == n2 / d1:
+                cf.append([n,d])
+            if n2 == d1 and fr == n1 / d2:
+                cf.append([n,d])
+            if n2 == d2 and fr == n1 / d1:
+                cf.append([n,d])
 
-        if n/10==n1 and d/10 == d1:
-            break
+num, dem = 1, 1
+for i in range(len(cf)):
+    num *= cf[i][0]
+    dem *= cf[i][1]
 
-        if fr==n1/n1
-            cf.append(n1/d1)
-        if fr==n1/d2:
-            cf.append(n1/d2)
-        if fr==n2/d1:
-            cf.append(n2/d1)
-        if fr==n2/d2:
-            cf.append(n2/d2)
+
 
 print cf
-
+print num
+print dem
+'''
 #s = time.time()
-#print 'Time: ' + str(time.time() - s)'''
+#print 'Time: ' + str(time.time() - s)
