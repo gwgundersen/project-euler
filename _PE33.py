@@ -18,22 +18,23 @@ import gmath as g
 
 def get_reduced_fraction(n, d):
 
+    if (n or d) == 1:
+        return [n, d]
+
     pg = g.gen_sieve_of_eratosthenes()
-    ps = [1]
+    ps = [2]
     if n > d: m = n
     else: m = d
-
-    while ps[len(ps)-1] < m:
-        ps.append(pg.next())
+    while ps[len(ps)-1] < m: ps.append(pg.next())
 
     for p in ps:
-        if (n % p and d % p) == 0:
-            n = int(float(n) / p)
-            d = int(float(d) / p)
-
-    print ps
-    return [n, d]       
-
+        if ((n % p and d % p) == 0) and ((n and d) != p):
+            print p
+            print n
+            print int(float(n)/p)
+            print int(float(d)/p)
+            print
+            return get_reduced_fraction(int(float(n)/p), int(float(d)/p))
 
 print get_reduced_fraction(8, 4)
 
