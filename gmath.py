@@ -5,6 +5,15 @@ The library has been compiled by Gregory Gundersen
 '''
 import time
 
+def get_gcd(a, b):
+    """
+    Euclidean algorithm
+    """
+    while b:
+        a = b
+        b = a%b
+    return a
+
 def isOdd(n):
     if n % 2 == 1:
         return True

@@ -17,7 +17,6 @@ Fractions: 16/64, 19/95, 26/65, 49/98
 
 import time
 import gmath as g
-from fractions import gcd
 
 def main():
     cf = []
@@ -39,9 +38,9 @@ def main():
     for i in range(len(cf)):
         num *= cf[i][0]
         dem *= cf[i][1]
-
-    #print cf
-    return dem / num
+    gcd = g.get_gcd(dem, num)
+    
+    return dem / gcd
 
 s = time.time()
 print main()
