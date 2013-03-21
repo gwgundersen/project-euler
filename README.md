@@ -1,4 +1,6 @@
-Project-Euler
+"Guass"
+Gregory Gundersen
+2013-03-20
 =============
 
-Working solutions for Project Euler
+Web application to render Project Euler solutions.
