@@ -1,6 +1,3 @@
-"Guass"
-Gregory Gundersen
-2013-03-20
+Project Euler
 =============
-
-Web application to render Project Euler solutions.
+Gregory Gundersen / 2013-01
