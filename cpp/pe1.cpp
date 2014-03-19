@@ -12,9 +12,12 @@
 * ------------------------------------------------------------------------- */
 
 #include <iostream>
+#include <ctime>
 
 int main()
 {
+    clock_t time_start = clock();
+
     int result = 0;
     for (int i = 0; i < 1000; i++) {
         if (i % 3 == 0 || i % 5 == 0) {
@@ -22,7 +25,8 @@ int main()
         }
     }
     
-    std::cout << result;
+    clock_t time_end = clock();
 
-    return 0;
+    std::cout << result;
+    std::cout << time_end - time_start;
 }
