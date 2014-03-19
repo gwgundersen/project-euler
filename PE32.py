@@ -1,24 +1,22 @@
-'''
-DESCRIPTION:
-Project Euler, problem 32
-Gregory Gundersen, 01/24/2013
+"""----------------------------------------------------------------------------
+Project Euler
+Gregory Gundersen
+2013-01-24
 
-PROBLEM:
-We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once;
-for example, the 5-digit number, 15234, is 1 through 5 pandigital.
-The product 7254 is unusual, as the identity, 39 * 186 = 7254,
-containing multiplicand, multiplier, and product is 1 through 9 pandigital.
-Find the sum of all products whose multiplicand/multiplier/product
+Problem:
+We shall say that an n-digit number is pandigital if it makes use of all the
+digits 1 to n exactly once; for example, the 5-digit number, 15234, is 1
+through 5 pandigital. The product 7254 is unusual, as the identity, 39 * 186 =
+7254, containing multiplicand, multiplier, and product is 1 through 9
+pandigital. Find the sum of all products whose multiplicand/multiplier/product
 identity can be written as a 1 through 9 pandigital.
 
-HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
+HINT: Some products can be obtained in more than one way so be sure to only
+include it once in your sum.
+----------------------------------------------------------------------------"""
 
-SOLUTION:
-45228
-'''
+import lib.gmath as g
 
-import time
-import gmath as g
 
 def main():
     result = []
@@ -29,7 +27,3 @@ def main():
             if g.is_pandigital(z) and len(z) == 9 and p not in result:
                 result.append(p)
     return sum(result)
-            
-s = time.time()
-print main()
-print 'Time: ' + str(time.time() - s)

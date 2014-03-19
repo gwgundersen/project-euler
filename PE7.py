@@ -1,28 +1,23 @@
-'''
-By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
-What is the 10 001st prime number?
-'''
+"""----------------------------------------------------------------------------
+Project Euler
+Gregory Gundersen
+2013-01
 
-def genPrimes():
-    primes = [2]
-    n = 1
-    i = 1
-    yield 2
+Problem:
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that
+the 6th prime is 13. What is the 10 001st prime number?
 
-    # modify this variable
-    count = 10001
-    
-    while i < count+1:
-        n += 1
-        for p in primes:
-            if (n % p) == 0:
-                break
-        else:
-            primes.append(n)
-            print 'prime #' + str(i)
-            i += 1
-            yield n
+Solution:
+----------------------------------------------------------------------------"""
 
-g = genPrimes()
-for p in g:
-    print p
+import lib.gmath as g
+
+
+def main():
+
+    result = 0
+    gen = g.gen_sieve_of_eratosthenes()
+    for i in range(10001):
+        p = gen.next()
+        result = p
+    return result
