@@ -1,25 +1,27 @@
-'''
-The following is a library of useful mathematical functions for Project Euler
-Most of the scripts were written by Gregory Gundersen, although many of them are not original
-The library has been compiled by Gregory Gundersen
-'''
-import time
+"""----------------------------------------------------------------------------
+The following is a library of useful mathematical functions for Project Euler.
+Most of the scripts were written by Gregory Gundersen, although many of them
+are not original. The library is being compiled by Gregory Gundersen.
+----------------------------------------------------------------------------"""
+
 
 def get_gcd(a, b):
+    """Euclidean algorithm
     """
-    Euclidean algorithm
-    """
+
     while b:
         a = b
         b = a%b
     return a
 
-def isOdd(n):
+
+def is_odd(n):
     if n % 2 == 1:
         return True
     return False
 
-def isPrime(n):
+
+def is_prime(n):
     if n < 2 or n % 2 == 0:
         return False
     if n == 2:
@@ -32,16 +34,18 @@ def isPrime(n):
         i += 2
     return True
 
+
 def is_circular_prime(p):
-    if not isPrime(p) or has_even_digit(p):
+    if not is_prime(p) or has_even_digit(p):
         return False
     for i in range(len(str(p))):
         p = rotate_digits(p)
-        if not isPrime(p):
+        if not is_prime(p):
             return False
     return True
 
-def genPrimes():
+
+def gen_primes():
     primes, n, i = [2], 1, 1
     yield 2
     while True:
@@ -52,6 +56,7 @@ def genPrimes():
         else:
             primes.append(n)
             yield n
+
 
 def gen_primes_from_p(p):
     primes, n, i = [2], 1, 1
@@ -65,11 +70,12 @@ def gen_primes_from_p(p):
             primes.append(n)
             yield n
 
-def gen_sieve_of_eratosthenes():
-    # Code by David Eppstein, UC Irvine, 28 Feb 2002
 
-    # Maps composites to primes witnessing their compositeness.
-    # This is memory efficient, as the sieve is not "run forward"
+def gen_sieve_of_eratosthenes():
+    """Code by David Eppstein, UC Irvine, 28 Feb 2002
+    Maps composites to primes witnessing their compositeness.
+    This is memory efficient, as the sieve is not 'run forward'
+    """
  
     D = {}  
 
@@ -97,9 +103,10 @@ def gen_sieve_of_eratosthenes():
 
         q += 1
 
+
 def get_prime_factors(n):
     primeFactors = []
-    for p in genPrimes():
+    for p in gen_primes():
         if p*p > n:
             break
         while n % p == 0:
@@ -110,6 +117,7 @@ def get_prime_factors(n):
 
     return primeFactors
 
+
 def gen_triangle_number():
     tri, inc = 1, 1
     yield 1
@@ -118,34 +126,40 @@ def gen_triangle_number():
         tri += inc
         yield tri
 
+
 def get_triangle_number(n):
     return (n * (n + 1)) / 2	 
+
 
 def get_pentagonal_number(n):
     return (n * (3*n - 1)) / 2	 
 
+
 def get_hexagonal_number(n):
     return n * (2*n - 1)
 
-def genComposites():
+
+def gen_composites():
     yield 4
     n = 5
     while True:
-        if not isPrime(n):
+        if not is_prime(n):
             yield n
             n += 1
         else:
             n += 1
 
-def genCompositesOdd():
+
+def gen_composites_odd():
     yield 9
     n = 15
     while True:
-        if not isPrime(n) and isOdd(n):
+        if not is_prime(n) and is_odd(n):
             yield n
             n += 2
         else:
             n += 2
+
 
 def get_factorial(n):
     facts = [1, 1]
@@ -153,29 +167,36 @@ def get_factorial(n):
         facts.append(facts[i-1] * i)
     return facts[n]
 
-# classic but highly inefficient recursive function
+
 def factorial(n):
+    """Classic but highly inefficient recursive function
+    """
+
     if n == 1:
         return 1
     else:
         return n * factorial(n-1)
 
-def getFibonacci(n):
+
+def get_fibonacci(n):
     if n == 0:
         return 0
     elif n == 1:
         return 1
     else:
-        return getFibonacci(n-1) + getFibonacci(n-2)
+        return get_fibonacci(n-1) + get_fibonacci(n-2)
 
-def genFibonacci():
+
+def gen_fibonacci():
     a, b = 0, 1
     while True:
         yield a
         a, b = b, a + b
 
-def getFigurate(n, M):
+
+def get_figurate(n, M):
     return (factorial(M+n-1) / factorial(M-1)) / factorial(n)
+
 
 def get_proper_divisors(n):
     divs = [1]
@@ -184,25 +205,30 @@ def get_proper_divisors(n):
             divs.append(num)
     return divs
 
+
 def is_amicable_pair(a,b):
     if sum(get_proper_divisors(a)) == b and sum(get_proper_divisors(b)) == a and a != b:
         return True
     return False
+
 
 def is_perfect(n):
     if sum(get_proper_divisors(n)) == n:
         return True
     return False
 
+
 def is_abundant(n):
     if sum(get_proper_divisors(n)) > n:
         return True
     return False
 
+
 def is_deficient(n):
     if sum(get_proper_divisors(n)) < n:
         return True
     return False
+
 
 def is_palindrome(n):
     sn = str(n)
@@ -216,6 +242,7 @@ def is_palindrome(n):
         else:
             return False
 
+
 def base10_to_baseK(n, K, L):
     # L is an empty list
     if n == 0:
@@ -227,6 +254,7 @@ def base10_to_baseK(n, K, L):
         L.append(n % K)
         return base10_to_baseK(n/K, K, L)
 
+
 def get_alphabet_value_char(char):
     alphabet_values = {
         'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8, 'i':9, 'j':10, 'k':11, 'l':12, 'm':13,
@@ -234,11 +262,13 @@ def get_alphabet_value_char(char):
         }
     return alphabet_values[char.lower()]
 
+
 def get_alphabet_value_word(word):
     value = 0
     for char in word:
         value += get_alphabet_value_char(char)
     return value
+
 
 def is_pandigital(n):
     L = map(str, range(1, len(str(n))+1))
@@ -249,29 +279,33 @@ def is_pandigital(n):
             return False
     return True
 
+
 def concatenated_product(n, L):
     s = ''
     for num in L:
         s += str(num * n)
     return int(s)
 
+
 def is_truncatable(n):
     s = str(n)
     l = len(s)
-    if l < 2 or not isPrime(n):
+    if l < 2 or not is_prime(n):
         return False
     for x in range(l):
-        if not isPrime(int(s[x:])):
+        if not is_prime(int(s[x:])):
             return False
     for x in range(l, 0, -1):
-        if not isPrime(int(s[:x])):
+        if not is_prime(int(s[:x])):
             return False
     return True
+
 
 def is_pythagorean_triple(L):
     if L[0]**2 + L[1]**2 == L[2]**2:
         return True
     return False
+
 
 def get_pythagorean_triples(p):
     ps = []
@@ -283,22 +317,24 @@ def get_pythagorean_triples(p):
                 ps.append([a,b,c])
     return ps
 
+
 def get_multiplicative_order(b, n):
-    # This function should be improved to always return a meaningful result
-    # e.g. It falls into an infinite loop for b = 10, n = 2
+    """This function should be improved to always return a meaningful result
+    e.g. It falls into an infinite loop for b = 10, n = 2
+    """
+
     k = 1
     while (b ** k) % n != 1:
         k += 1
     return k
 
-"""
-HELPER FUNCTIONS
-"""
 
 def is_permutation(n, m):
     """ If n is a permutation of m, return True, else False
     """
+
     return sorted(str(n)) == sorted(str(m))
+
 
 def has_even_digit(n):
     if n == 0:
@@ -308,6 +344,7 @@ def has_even_digit(n):
             return True
         n //= 10
     return False
+
 
 def rotate_digits(n):
     
@@ -320,3 +357,51 @@ def rotate_digits(n):
     n_list[-1] = n_first
 
     return int(''.join(n_list))
+
+
+def is_permutation(n, m):
+
+    return sorted(str(n)) == sorted(str(m))
+
+
+def has_even_digits(n):
+
+    if n == 0:
+        return True
+    while n != 0:
+        if n % 2 == 0:
+            return True
+        n //= 10
+    return False
+
+
+def rotate_digits(n):
+
+    L = list(str(n))
+    f = L[0]
+    for i in range(0, len(str(n))-1):
+        L[i] = L[i+1]
+    L[-1] = f
+    return int(''.join(L))
+
+
+def get_alphabet_value_char(char):
+    """Return the base-1 index of a character
+    """
+
+    alphabet_values = {
+        'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8, 'i':9, 'j':10,
+        'k':11, 'l':12, 'm':13, 'n':14, 'o':15, 'p':16, 'q':17, 'r':18, 's':19,
+        't':20, 'u':21, 'v':22, 'w':23, 'x':24, 'y':25, 'z':26
+    }
+    return alphabet_values[char.lower()]
+
+
+def get_alphabet_value_word(word):
+    """Return the sum of every character in a string's base-1 index value
+    """
+
+    result = 0
+    for char in word:
+        result += get_alphabet_value_char(char)
+    return result
