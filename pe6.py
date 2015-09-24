@@ -18,7 +18,6 @@ Solution:
 
     
 def sum_of_squares(limit):
-
     sum = 0
     for i in range(1, limit+1):
         sum += i**2
@@ -26,7 +25,6 @@ def sum_of_squares(limit):
 
 
 def square_of_sums(limit):
-
     sum = 0
     for i in range(1, limit+1):
         sum += i
@@ -35,6 +33,5 @@ def square_of_sums(limit):
 
 
 def main():
-
     limit = 100
     return square_of_sums(limit) - sum_of_squares(limit)

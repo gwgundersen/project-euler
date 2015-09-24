@@ -20,11 +20,11 @@ that produces the maximum number of primes for consecutive values of n,
 starting with n = 0.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     max_c = 0
     max_m = 0
     for a in range(-1000, 1000):
@@ -32,7 +32,7 @@ def main():
             c = 0
             n = 0
             m = a*b
-            while g.is_prime_quadratic(n, a, b):
+            while gmath.is_prime_quadratic(n, a, b):
                 c += 1
                 n += 1
             if c > max_c:

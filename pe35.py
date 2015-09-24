@@ -16,12 +16,13 @@ number, making that rotation not prime. Optimization needs to happen at the
 gmath level.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
 
-    gen =  g.gen_sieve_of_eratosthenes()
+    gen = gmath.gen_sieve_of_eratosthenes()
     p = 0
     result = 1 # gen.next() skips 2
 

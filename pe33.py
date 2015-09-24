@@ -17,7 +17,8 @@ Solution:
 Brute-force search. The fractions are 16/64, 19/95, 26/65, and 49/98.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
@@ -41,6 +42,6 @@ def main():
     for i in range(len(cf)):
         num *= cf[i][0]
         dem *= cf[i][1]
-    gcd = g.get_gcd(dem, num)
+    gcd = gmath.get_gcd(dem, num)
     
     return dem / gcd

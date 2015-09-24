@@ -23,7 +23,8 @@ Find the sum of all the positive integers which cannot be written as the sum of
 two abundant numbers.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
@@ -34,7 +35,7 @@ def main():
     result = 0
 
     for n in range(12, hi):
-        if g.is_abundant(n):
+        if gmath.is_abundant(n):
             ab_nums.append(n)
             ab_hash[n] = n
     for S in range(1, hi):

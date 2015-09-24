@@ -19,13 +19,12 @@ What is the smallest odd composite that cannot be written as the sum of a
 prime and twice a square?
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+import gmath
 
 
 def main():
-
-	gen = g.gen_composite_odd()
-	result = gen.next()
-	while g.is_goldbach(result):
-	    result = gen.next()
-	return result
+    gen = gmath.gen_composite_odd()
+    result = gen.next()
+    while gmath.is_goldbach(result):
+        result = gen.next()
+    return result

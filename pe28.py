@@ -21,7 +21,6 @@ in the same way?
 
 
 def main():
-
     result = 0
     for n in range(1001, 1, -2):
         result += 4 * (n**2) - (6 * n) + 6

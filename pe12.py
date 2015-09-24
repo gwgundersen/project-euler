@@ -23,29 +23,25 @@ What is the value of the first triangle number to have over five hundred
 divisors?
 ----------------------------------------------------------------------------"""
 
+
 import collections
 import operator
-import lib.gmath as g
+import gmath
 
 
 def get_number_of_divisors(max_divisor):
 
-    prime_factors = []
-    number_of_each_divisor = []
     total = 0
-    gen = g.gen_triangle_numbers()
-    #primeFactors, numOfEachDiv, total = [], [], 0
+    gen = gmath.gen_triangle_numbers()
 
     while total < max_divisor:
         
-        ''' get prime factors of next triangle number '''
+        # get prime factors of next triangle number
         tri_num = gen.next()
         prime_factors = g.get_prime_factors(tri_num)
 
-        ''' If n = a^c * b^d where a and b are n's prime divisors,
-        repeated c and d times respectively,
-        then n's number of divisors is (c + 1) * (d + 1) '''
-
+        # If n = a^c * b^d where a and b are n's prime divisors, repeated c and
+        # d times respectively, then n's number of divisors is (c + 1) * (d + 1)
         counter = collections.Counter(prime_factors)
         number_of_each_divisor = counter.values()
         number_of_each_divisor = [i+1 for i in number_of_each_divisor]
@@ -55,5 +51,4 @@ def get_number_of_divisors(max_divisor):
 
 
 def main():
-
     return get_number_of_divisors(500)

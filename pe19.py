@@ -26,11 +26,11 @@ Gauss's algorithm: http://en.wikipedia.org/wiki/Determination_of_the_day_of_the
 _week#Gauss.27s_algorithm 
 ----------------------------------------------------------------------------"""
 
+
 from datetime import date
 
 
 def main():
-
     count = 0
     for year in range(1901, 2001):
         for month in range(1, 13):

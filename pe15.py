@@ -21,12 +21,13 @@ because it reinforced the idea that mathematics ties seemingly disparate
 problems together.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
     result = 1
     M = 20
     for n in range(1, M+1):
-        result += g.get_figurate(n, M)
+        result += gmath.get_figurate(n, M)
     return result

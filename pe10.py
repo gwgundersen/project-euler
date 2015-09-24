@@ -10,12 +10,13 @@ Find the sum of all the primes below two million.
 Solution:
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
     sum = 2    # begin at 2, then iterate over only odd numbers
     for i in range(3, 2000001, 2):
-        if g.is_prime(i):
+        if gmath.is_prime(i):
             sum += i
     return sum

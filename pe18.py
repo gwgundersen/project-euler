@@ -38,11 +38,11 @@ containing one-hundred rows; it cannot be solved by brute force, and requires
 a clever method! ;o)
 ----------------------------------------------------------------------------"""
 
+
 import os
 
 
 def update_nodes(tri):
-
     L = len(tri)-1
     for node in range(len(tri[L-1])):
         tri[L-1][node] = max(tri[L-1][node] + tri[L][node], tri[L-1][node] +
@@ -51,13 +51,11 @@ def update_nodes(tri):
 
 
 def truncate_triangle(tri):
-
     return tri[:len(tri)-1]
 
 
 def main():
-
-	# build nested array to represent triangle
+    # build nested array to represent triangle
     path = os.path.normpath(os.path.dirname(__file__) +
         '../../txt/pe18_triangle.txt')
     with open(path) as f:

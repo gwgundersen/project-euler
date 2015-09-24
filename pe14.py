@@ -21,7 +21,6 @@ allowed to go above one million.
 
 
 def calculate_chains(n, chains):
-
     if n == 1: return 1
     if n not in chains:
         chains[n] = 1 + calculate_chains(n/2 if n%2==0 else 3*n+1, chains)
@@ -29,13 +28,11 @@ def calculate_chains(n, chains):
 
 
 def get_value(dictionary, search_value):
-
     for key, value in dictionary.iteritems():
         if value == search_value: return key
 
 
 def main():
-
     chains = {}
     m = max(calculate_chains(i, chains) for i in range(1,1000000))
     return get_value(chains, m)

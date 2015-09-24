@@ -21,15 +21,16 @@ Behold, the power of hashing. Also, if a number is a hexagonal number, it is a
 triangle number. We do not need to check both.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
 
     pent, hexa, bound = {}, {}, 40755
     for i in range(1, 100000):
-        p = g.get_pentagonal_number(i)
-        h = g.get_hexagonal_number(i)
+        p = gmath.get_pentagonal_number(i)
+        h = gmath.get_hexagonal_number(i)
         pent[p] = p
         hexa[h] = h
 

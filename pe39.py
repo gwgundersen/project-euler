@@ -10,13 +10,13 @@ If p is the perimeter of a right angle triangle with integral length sides,
 For which value of p <= 1000, is the number of solutions maximised?
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     results = {}
     for p in range(2, 1000, 2):
-        t = g.get_pythagorean_triples(p)
+        t = gmath.get_pythagorean_triples(p)
         results[p] = len(t)
     return max(results, key=results.get)

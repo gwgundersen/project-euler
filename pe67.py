@@ -32,9 +32,9 @@ from pe18 import *
 
 def main():
 
-	# build nested array to represent triangle
+    # build nested array to represent triangle
     path = os.path.normpath(os.path.dirname(__file__) +
-        '../../txt/pe67_triangle.txt')
+                            '../../txt/pe67_triangle.txt')
     with open(path) as f:
         temp_tri = f.read().splitlines()
     f.close()

@@ -13,15 +13,15 @@ truncatable from left to right and right to left.
 NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     result = []
     p = 23
     while len(result) < 11:
-        if g.is_truncatable(p):
+        if gmath.is_truncatable(p):
             result.append(p)
         p += 2
     return sum(result)
