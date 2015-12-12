@@ -15,7 +15,8 @@ HINT: Some products can be obtained in more than one way so be sure to only
 include it once in your sum.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
@@ -24,6 +25,6 @@ def main():
         for y in range(1, 2000):
             p = x*y
             z = str(x) + str(y) + str(p)
-            if g.is_pandigital(z) and len(z) == 9 and p not in result:
+            if gmath.is_pandigital(z) and len(z) == 9 and p not in result:
                 result.append(p)
     return sum(result)

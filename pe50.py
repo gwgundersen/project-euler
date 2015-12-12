@@ -18,11 +18,12 @@ Which prime, below one-million, can be written as the sum of the most
 consecutive primes?
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def get_primes(limit):
-    gen = g.gen_sieve_of_eratosthenes()
+    gen = gmath.gen_sieve_of_eratosthenes()
     primes = []
     while True:
         p = gen.next()
@@ -52,7 +53,7 @@ def main():
         for j in range(len(sums)):
             n = sums[j] - sums[i] # sum
             l = j-i # len
-            if g.is_prime(n) and l > t and n <= limit:
+            if gmath.is_prime(n) and l > t and n <= limit:
                 t = l
                 result = n
     return result

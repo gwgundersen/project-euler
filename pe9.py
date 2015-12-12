@@ -13,7 +13,8 @@ Find the product abc.
 Solution:
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
@@ -24,5 +25,5 @@ def main():
     for i in range(0, limit):
         for j in range(0, limit):
             for k in range(0, limit):
-                if g.is_pythagorean_triplet(i, j, k) and i != j and i+j+k == prod:
+                if gmath.is_pythagorean_triplet(i, j, k) and i != j and i+j+k == prod:
                     return i*j*k

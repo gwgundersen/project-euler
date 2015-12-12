@@ -19,14 +19,14 @@ my limit:
 9! * 7 is the upper bound
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
-	limit = 7 * g.get_factorial(9)
-	result = 0
-	for n in range(3, limit):
-	    if n == sum(g.get_factorial(int(i)) for i in str(n)):
-	        result += n
-	return result
+    limit = 7 * gmath.get_factorial(9)
+    result = 0
+    for n in range(3, limit):
+        if n == sum(gmath.get_factorial(int(i)) for i in str(n)):
+            result += n
+    return result

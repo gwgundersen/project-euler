@@ -15,19 +15,20 @@ What 12-digit number do you form by concatenating the three terms in this
 sequence?
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
            
 def main():
     
-    gen =  g.gen_sieve_of_eratosthenes()
+    gen = gmath.gen_sieve_of_eratosthenes()
     p, primes = 1, []
         
     while p < 10000:
         p = gen.next()
         p2 = p + 3330
         p3 = p + 6660
-        if g.is_prime(p2) and g.is_prime(p3):
-            if g.is_permutation(p, p2) and g.is_permutation(p, p3):
+        if gmath.is_prime(p2) and gmath.is_prime(p3):
+            if gmath.is_permutation(p, p2) and gmath.is_permutation(p, p3):
                 primes.append([str(p), str(p2), str(p3)])
     return int(''.join(primes[1]))

@@ -34,18 +34,18 @@ The number has to equal 45
 
 
 def k_append(k, n):
-
     if len(set(str(n))) == 3:
         k.append(str(n))
     if len(str(n)) == 2 and len(set(str(n))) == 2:
         k.append('0' + str(n))
 
-def add_missing_digit(sn):
 
+def add_missing_digit(sn):
     digits = '0123456789'
     for d in digits:
         if d not in sn:
             return int(d+sn)
+
 
 def main():
 

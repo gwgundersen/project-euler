@@ -20,15 +20,15 @@ appropriate range. Then, check if the index and value are amicable. Sum the
 amicable indices.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     divs, result = [], 0
     for num in range(1,10000):
-        divs.append(sum(g.get_proper_divisors(num)))
+        divs.append(sum(gmath.get_proper_divisors(num)))
     for i in range(len(divs)):
-        if g.is_amicable_pair(i, divs[i-1]):
+        if gmath.is_amicable_pair(i, divs[i-1]):
             result += i
     return result

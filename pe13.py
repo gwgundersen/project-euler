@@ -9,11 +9,11 @@ numbers.
 [see ../static/txt/pe13_numbers.txt']
 ----------------------------------------------------------------------------"""
 
+
 import os
 
 
 def main():
-    
     result = 0
     path = os.path.normpath(os.path.dirname(__file__) +
         '../../txt/pe13_number.txt')

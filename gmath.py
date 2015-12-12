@@ -8,7 +8,6 @@ are not original. The library is being compiled by Gregory Gundersen.
 def get_gcd(a, b):
     """Euclidean algorithm
     """
-
     while b:
         a = b
         b = a%b

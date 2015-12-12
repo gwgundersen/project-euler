@@ -17,14 +17,15 @@ Find the first four consecutive integers to have four distinct primes factors.
 What is the first of these numbers?
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
       
 
 def main():
     
     factors = []
     for i in range(150000):
-        factors.append(g.get_prime_factors(i))
+        factors.append(gmath.get_prime_factors(i))
 
     for i in range(1, len(factors)-4):
         if len(set(factors[i])) == 4 and len(set(factors[i+1])) == 4 and\

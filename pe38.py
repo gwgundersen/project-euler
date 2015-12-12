@@ -24,14 +24,14 @@ The challenge is, once again, finding the search-space limit:
     932718654
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     for x in range(10000, 0, -1):
         for y in range(9, 0, -1):
             L = range(1, y+1)
-            cp = g.concatenated_product(x, L)
-            if g.is_pandigital(cp) and len(str(cp)) == 9:
+            cp = gmath.concatenated_product(x, L)
+            if gmath.is_pandigital(cp) and len(str(cp)) == 9:
                 return cp

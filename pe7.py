@@ -10,13 +10,13 @@ the 6th prime is 13. What is the 10 001st prime number?
 Solution:
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     result = 0
-    gen = g.gen_sieve_of_eratosthenes()
+    gen = gmath.gen_sieve_of_eratosthenes()
     for i in range(10001):
         p = gen.next()
         result = p

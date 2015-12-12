@@ -15,11 +15,11 @@ down, left, right, or diagonally) in the 20*20 grid?
 Solution:
 ----------------------------------------------------------------------------"""
 
+
 import os
 
 
 def get_grid():
-
     path = os.path.normpath(os.path.dirname(__file__) + '../../txt/pe11_grid.txt')
     f = open(path,'r')
     grid_master = f.read().split(' ')
@@ -30,7 +30,6 @@ def get_grid():
 
 
 def get_h_max(grid):
-
     h = []
     for row in grid:
         for col in range(len(grid)-3):
@@ -39,7 +38,6 @@ def get_h_max(grid):
 
 
 def get_v_max(grid):
-
     v = []
     for col in range(len(grid)):
         for row in range(len(grid)-3):
@@ -48,7 +46,6 @@ def get_v_max(grid):
 
 
 def get_r_max(grid):
-
     r = []
     for row in range(len(grid)-3):
         for col in range(len(grid)-3):
@@ -57,7 +54,6 @@ def get_r_max(grid):
 
 
 def get_l_max(grid):
-
     l = []
     for row in range(3,len(grid)):
         for col in range(len(grid)-3):
@@ -66,6 +62,5 @@ def get_l_max(grid):
 
 
 def main():
-
     grid = get_grid()
     return max(get_h_max(grid), get_h_max(grid), get_r_max(grid), get_l_max(grid))

@@ -16,11 +16,8 @@ following expression.
     d_1 * d_10 * d_100 * d_1000 * d_10000 * d_100000 * d_1000000
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
-
 
 def main():
-
     L = ['0']
     for i in range(1, 200000):
         L.append(str(i))

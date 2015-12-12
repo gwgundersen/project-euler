@@ -19,7 +19,6 @@ import itertools
 
 
 def main():
-
     d = [n for n in range(10)]
     perms = itertools.permutations(d)
     return int(''.join(map(str, list(perms)[999999])))

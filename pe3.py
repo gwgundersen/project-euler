@@ -17,7 +17,8 @@ iterating over integers, checking for primality, and then checking for
 divisibility. The latter optimization reduced runtime by approximately tenfold.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
@@ -25,11 +26,11 @@ def main():
     result = 0
     n = 600851475143
     limit = int(n**0.5)
-    gen = g.gen_sieve_of_eratosthenes()
+    gen = gmath.gen_sieve_of_eratosthenes()
     p = gen.next()
 
     while p < limit:
-    	if n % p == 0:
-    		result = p
-    	p = gen.next()
+        if n % p == 0:
+            result = p
+        p = gen.next()
     return result

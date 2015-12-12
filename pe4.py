@@ -13,18 +13,16 @@ Brute-force. The computational expense is primarily with the nested for loops.
 We can reduce this search space?
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     result = 0
     for i in range(999, 0, -1):
         for j in range(999, 0, -1):
-            if g.is_palindromic_number(i*j):
+            if gmath.is_palindromic_number(i*j):
                 temp = i*j
-                print temp
                 if temp > result:
-                    print result
                     result = temp
     return result

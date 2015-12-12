@@ -14,13 +14,13 @@ Solution:
 Lazily load Fibonacci numbers and test if each one is divisible by 2.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     result = 0
-    gen = g.gen_fibonacci()
+    gen = gmath.gen_fibonacci()
     fib = gen.next()
     while fib < 4000000:
         if fib % 2 == 0:

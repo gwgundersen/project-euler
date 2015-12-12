@@ -15,7 +15,6 @@ divisible by 2520 (which is divisible by 1-10).
 
 
 def divide_n_by_range(n):
-    
     for i in range(1, 21):
         if n % i != 0:
             return False
@@ -23,7 +22,6 @@ def divide_n_by_range(n):
 
 
 def main():
-
     n = 2520
     i = 2520
     while divide_n_by_range(n) == False:

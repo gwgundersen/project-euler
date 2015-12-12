@@ -22,14 +22,15 @@ seen that 1/7 has a 6-digit recurring cycle. Find the value of d < 1000 for
 which 1/d contains the longest recurring cycle in its decimal fraction part.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
 
     # get primes less than 1000
     # remove 2 & 5, which are coprime with 10
-    gen = g.gen_primes()
+    gen = gmath.gen_primes()
     L = []
     max_order = 0
     result = 0
@@ -41,7 +42,7 @@ def main():
     L = L[3:]
 
     for p in L:
-        temp_order = g.get_multiplicative_order(10, p)
+        temp_order = gmath.get_multiplicative_order(10, p)
         if temp_order > max_order:
             max_order = temp_order
             result = p

@@ -13,15 +13,15 @@ base 10 and base 2.
 leading zeros.)
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
-
     result = 0
     for n in range(1, 1000000):
-        if g.is_palindromic_number(n):
-            n2 = g.base10_to_baseK(n, 2, [])
-            if g.is_palindromic_number(n2):
+        if gmath.is_palindromic_number(n):
+            n2 = gmath.base10_to_baseK(n, 2, [])
+            if gmath.is_palindromic_number(n2):
                 result += n
     return result

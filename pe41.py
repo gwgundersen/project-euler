@@ -19,12 +19,13 @@ bound is 7654321--8 and 9 digit numbers are always divisible by 3. For example:
 Second, search only odd numbers from high to low.
 ----------------------------------------------------------------------------"""
 
-import lib.gmath as g
+
+import gmath
 
 
 def main():
 
     for n in range(7654321, 1, -2):
-        if g.is_pandigital(n) and g.is_prime(n):
-        	return n
+        if gmath.is_pandigital(n) and gmath.is_prime(n):
+            return n
     return None
