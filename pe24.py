@@ -1,7 +1,7 @@
 """----------------------------------------------------------------------------
 Project Euler
 Gregory Gundersen
-2012-01
+2013-01
 
 Problem:
 A permutation is an ordered arrangement of objects. For example, 3124 is one

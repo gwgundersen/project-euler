@@ -1,7 +1,7 @@
 """----------------------------------------------------------------------------
 Project Euler
 Gregory Gundersen
-2012-01
+2013-01
 
 Problem:
 The following iterative sequence is defined for the set of positive integers:

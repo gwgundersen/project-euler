@@ -1,7 +1,7 @@
 ﻿"""----------------------------------------------------------------------------
 Project Euler
 Gregory Gundersen
-2012-01-15
+2013-01-15
 
 Problem:
 Let d(n) be defined as the sum of proper divisors of n (numbers less than n
