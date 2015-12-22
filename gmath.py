@@ -21,10 +21,10 @@ def is_odd(n):
 
 
 def is_prime(n):
-    if n < 2 or n % 2 == 0:
-        return False
     if n == 2:
         return True
+    if n < 2 or n % 2 == 0:
+        return False
     maxi = n**0.5
     i = 3
     while i <= maxi:
@@ -127,11 +127,11 @@ def gen_triangle_number():
 
 
 def get_triangle_number(n):
-    return (n * (n + 1)) / 2	 
+    return (n * (n + 1)) / 2     
 
 
 def get_pentagonal_number(n):
-    return (n * (3*n - 1)) / 2	 
+    return (n * (3*n - 1)) / 2   
 
 
 def get_hexagonal_number(n):
